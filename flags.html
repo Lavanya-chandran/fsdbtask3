@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>sample</title>
+    </head>
+    <body>
+        <script>
+            var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v2/all")
+xhr.send();
+fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(country => {
+      if (country.flags) {
+        console.log(country.flags.png); 
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+        </script>
+    </body>
+</html>
