@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>sample</title>
+    </head>
+    <body>
+        <script>
+            var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v2/all")
+xhr.send();
+  then(response => response.json()) 
+  then(data => {
+    data.forEach(country => {
+      const name = country.name.common;
+      const region = country.region;
+      const subregion = country.subregion;
+      const population = country.population.toLocaleString(); 
+      console.log(Country: ${name});
+      console.log(Region: ${region});
+      console.log(Sub-region: ${subregion});
+      console.log(Population: ${population});
+      console.log('---------------------------'); 
+    });
+  })
+  catch(error => {
+    console.error('Error fetching data:', error);
+  });
+        </script>
+    </body>
+</html>
